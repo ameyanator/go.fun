@@ -5,6 +5,7 @@ import "testing"
 func TestHello(t *testing.T) {
 
 	assertCorrectMessage := func(t testing.TB, got, want string) {
+		//t.Helper() is a function which tells go that this is a helper function and not print put line number of this function but that of the caller
 		t.Helper()
 		if got != want {
 			t.Errorf("got %q want %q", got, want)
