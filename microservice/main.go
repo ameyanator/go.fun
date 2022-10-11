@@ -16,12 +16,13 @@ func main() {
 	// Handle func registers a func to a path on DefaultServMux
 
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
-	hh := handlers.NewHello(l)
-	gh := handlers.NewGoodbye(l)
+	// hh := handlers.NewHello(l)
+	// gh := handlers.NewGoodbye(l)
+	ph := handlers.NewProducts(l)
 
 	sm := http.NewServeMux()
-	sm.Handle("/", hh)
-	sm.Handle("/goodbye", gh)
+	sm.Handle("/", ph)
+	// sm.Handle("/goodbye", gh)
 
 	s := http.Server{
 		Addr:         ":9090",
@@ -45,7 +46,7 @@ func main() {
 
 	sig := <-sigChan
 	l.Println("Received terminate, graceful shutdown", sig)
-	
+
 	tc, _ := context.WithTimeout(context.Background(), 30*time.Second)
 	s.Shutdown(tc)
 }
