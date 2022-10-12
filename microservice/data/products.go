@@ -23,6 +23,24 @@ func GetProducts() Products {
 	return productList
 }
 
+func AddProduct(prod *Product) {
+	prod.ID = getNextId()
+	productList = append(productList, prod)
+}
+
+func GetProductById(id int) (*Product, int) {
+	for i, val := range productList {
+		if val.ID == id {
+			return val, i
+		}
+	}
+	return nil, -1
+}
+
+func UpdateProductAtIndex(index int, prod *Product) {
+	productList[index] = prod
+}
+
 func (p *Product) FromJSON(r io.Reader) error {
 	d := json.NewDecoder(r)
 	return d.Decode(p)
@@ -31,11 +49,6 @@ func (p *Product) FromJSON(r io.Reader) error {
 func (p *Products) ToJSON(w io.Writer) error {
 	e := json.NewEncoder(w)
 	return e.Encode(p)
-}
-
-func AddProduct(prod *Product) {
-	prod.ID = getNextId()
-	productList = append(productList, prod)
 }
 
 func getNextId() int {

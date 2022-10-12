@@ -1,8 +1,11 @@
 package handlers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"regexp"
+	"strconv"
 
 	"goinpractice.com/microservice/data"
 )
@@ -26,6 +29,22 @@ func (p *Products) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if r.Method == http.MethodPut {
+		p.l.Println("Path is ", r.URL.Path)
+		regx := regexp.MustCompile(`/[0-9]+`)
+		id := regx.FindAllString(r.URL.Path, -1)
+		if len(id) > 1 {
+			http.Error(rw, "Only 1 id must be specified", http.StatusBadRequest)
+			return
+		}
+		intid, err := strconv.Atoi(id[0][1:])
+		if err != nil {
+			http.Error(rw, "Id should be a number", http.StatusBadRequest)
+			return
+		}
+		p.updateProduct(intid, rw, r)
+	}
+
 	//catch all
 	rw.WriteHeader(http.StatusMethodNotAllowed)
 }
@@ -47,4 +66,20 @@ func (p *Products) addNewProduct(rw http.ResponseWriter, h *http.Request) {
 		return
 	}
 	data.AddProduct(prod)
+}
+
+func (p *Products) updateProduct(id int, rw http.ResponseWriter, r *http.Request) {
+	newProd := &data.Product{}
+	err := newProd.FromJSON(r.Body)
+	if err != nil {
+		http.Error(rw, "product is not of right configuration", http.StatusBadRequest)
+		return
+	}
+
+	oldProd, index := data.GetProductById(id)
+	if oldProd.ID != newProd.ID || oldProd.ID != id || newProd.ID != id {
+		panic(fmt.Sprintf("What the fuck is going on! oldProd.ID is {%d} and newProd.ID is {%d} and id is {%d}", oldProd.ID, newProd.ID, id))
+	}
+
+	data.UpdateProductAtIndex(index, newProd)
 }
