@@ -8,6 +8,7 @@ require (
 )
 
 require (
+	github.com/Masterminds/cookoo v1.3.0 // indirect
 	github.com/PuerkitoBio/goquery v1.8.0 // indirect
 	github.com/andybalholm/cascadia v1.3.1 // indirect
 	github.com/braintree/manners v0.0.0-20160418043613-82a8879fc5fd // indirect
