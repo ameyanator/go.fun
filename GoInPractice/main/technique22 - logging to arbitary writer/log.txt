@@ -1,0 +1,2 @@
+example-2022/11/18 08:48:29 technique22.go:14: This is a regular message
+example-2022/11/18 08:48:29 technique22.go:15: This is a fatal error
