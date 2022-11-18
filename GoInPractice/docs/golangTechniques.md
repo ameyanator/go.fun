@@ -26,3 +26,4 @@
  * `runtime` and `runtime/debug` packages contain numerous functions for analyzing memory usage, goroutines, threading and other aspects of program's memory usages
  * When logging a stack we can set flags to print out stacks for all running goroutines. Tremendously useful when debugging concurrency problems, but increases output size.
  * We can print stacks from `runtime` & `runtime/debug`. When using `runtime` we must decide ahead how much buffer we need to allocate.
+ * For advanced key-value pair logging which is easily understood by computers, [slog](https://pkg.go.dev/github.com/gookit/slog#section-readme) package exists. [Talk to understand slog](https://opensourcelive.withgoogle.com/events/go-day-2022/watch?talk=talk2)
