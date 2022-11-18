@@ -12,8 +12,17 @@
 
  ## Error Handling
  * We should minimize returning nils from programs and return default values whenever possible
- * In go we can mainly define errors on the fly with errors.New() but if you want extra information about the error you can define your own custom error
+ * In go we can mainly define errors on the fly with `errors.New()` but if you want extra information about the error you can define your own custom error
  * A smart idea could be to define a package with error variables of the common errors you exepct and then use it
  * Use panics when something unexpected happens, don't panic unless there's no clear way to handle the situation, use errors instead
  * Use `defer()` and `recover()` from panics that can occur when making further calls within a function
  * Always close files, network connections, sockets etc.
+
+ ## Logging
+ * Decide what flags to use when creating a logger
+ * You can log to a network resource which will keep on writing on the socket. **We should use event streaming for logging**
+ * To handle back pressure when writing to a network resource one might consider converting the protocol from tcp to udp. Pros and Cons are those of TCP vs UDP
+ * We should decide which level to write to when using syslog
+ * `runtime` and `runtime/debug` packages contain numerous functions for analyzing memory usage, goroutines, threading and other aspects of program's memory usages
+ * When logging a stack we can set flags to print out stacks for all running goroutines. Tremendously useful when debugging concurrency problems, but increases output size.
+ * We can print stacks from `runtime` & `runtime/debug`. When using `runtime` we must decide ahead how much buffer we need to allocate.
