@@ -1,0 +1,4 @@
+go 1.19
+
+use ./hello
+git clone https://go.googlesource.com/example
