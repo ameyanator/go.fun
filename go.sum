@@ -2,6 +2,8 @@ github.com/Masterminds/cookoo v1.3.0 h1:zwplWkfGEd4NxiL0iZHh5Jh1o25SUJTKWLfv2FkX
 github.com/Masterminds/cookoo v1.3.0/go.mod h1:oXuAk0dniDrcAwWZQYMWYzJnpnAZqQFcR7CkHsEIBHc=
 github.com/PuerkitoBio/goquery v1.8.0 h1:PJTF7AmFCFKk1N6V6jmKfrNH9tV5pNE6lZMkG0gta/U=
 github.com/PuerkitoBio/goquery v1.8.0/go.mod h1:ypIiRMtY7COPGk+I/YbZLbxsxn9g5ejnI2HSMtkjZvI=
+github.com/ameyanator/Awesome-Go-Snippets v0.0.0-20221203191937-f504f8d56ecc h1:mgGscDwpKyKh2okTc1VrKTVn54qNxDypCBKnmiwitaw=
+github.com/ameyanator/Awesome-Go-Snippets v0.0.0-20221203191937-f504f8d56ecc/go.mod h1:NxLCjBTIE7dsbkgueY8xlkawCRmlv6lUsDjG4uIAurU=
 github.com/andybalholm/cascadia v1.3.1 h1:nhxRkql1kdYCc8Snf7D5/D3spOX+dBgjA6u8x004T2c=
 github.com/andybalholm/cascadia v1.3.1/go.mod h1:R4bJ1UQfqADjvDa4P6HZHLh/3OxWWEqc0Sk8XGwHqvA=
 github.com/braintree/manners v0.0.0-20160418043613-82a8879fc5fd h1:ePesaBzdTmoMQjwqRCLP2jY+jjWMBpwws/LEQdt1fMM=
