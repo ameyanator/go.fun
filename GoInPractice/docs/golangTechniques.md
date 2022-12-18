@@ -27,3 +27,10 @@
  * When logging a stack we can set flags to print out stacks for all running goroutines. Tremendously useful when debugging concurrency problems, but increases output size.
  * We can print stacks from `runtime` & `runtime/debug`. When using `runtime` we must decide ahead how much buffer we need to allocate.
  * For advanced key-value pair logging which is easily understood by computers, [slog](https://pkg.go.dev/github.com/gookit/slog#section-readme) package exists. [Talk to understand slog](https://opensourcelive.withgoogle.com/events/go-day-2022/watch?talk=talk2)
+
+ ## Http, Rest and Web Services
+ * When connecting to an external server connection timeouts may occur due to a variety of reasons, it would make sense to retry the request if we are able to accurately detect a connection timeout
+ * When downloading large files, connection timeouts may occur, in these cases don't start the download again from the start but rather continue downloading it from where you left off
+ * If your service needs to have its own custom logic of errors, then return custom erros. Document it well so your clients know about it so they can parse it easily at their end.
+ * Suppose some service has not documented the custom errors well, handle it by parsing unknown json structs
+ * Have proper API versioning in URL or content type
