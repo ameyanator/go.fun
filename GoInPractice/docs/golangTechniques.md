@@ -34,3 +34,11 @@
  * If your service needs to have its own custom logic of errors, then return custom erros. Document it well so your clients know about it so they can parse it easily at their end.
  * Suppose some service has not documented the custom errors well, handle it by parsing unknown json structs
  * Have proper API versioning in URL or content type
+
+ ## Cloud Computing
+ * Working with multiple cloud providers. One must not get tied down to a single cloud provider, have interfaces in place and use it instead of concrete implementations in your code to avoid vendor lock-in
+ * For error handling, have a look at common errors that occur and return them as such so that your native code handles the errors correctly irrespective of cloud provider error
+ * Gather as much information possible about the host as applications on the cloud run in multiple different environments
+ * As applications can run in different environments some of them might have dependencies preinstalled and others not, detect the dependencies before using them. if not then might even consider code to write the dependencies.
+ * Cross Compile for multiple architectures and check your code's sanity on them
+ * Monitor the runtime to get an idea into goroutine issues, memory leaks and other problems.
