@@ -1,6 +1,6 @@
 package main
 
-// type Vehicle interface {
-// 	getLicensePlateNumber() string
-// 	getVehicleType() VehicleType
-// }
+type Vehicle interface {
+	getLicensePlateNumber() string
+	getVehicleType() VehicleType
+}

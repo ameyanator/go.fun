@@ -1,9 +1,9 @@
 package main
 
-// type VehicleType int
+type VehicleType int
 
-// const (
-// 	Car   VehicleType = 1
-// 	Bike  VehicleType = 2
-// 	Truck VehicleType = 3
-// )
+const (
+	CarType   VehicleType = 1
+	BikeType  VehicleType = 2
+	TruckType VehicleType = 3
+)
